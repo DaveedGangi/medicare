@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Check, Image, Camera, Clock } from "lucide-react";
 import { format } from "date-fns";
 
+import axios from "axios";
+
 interface MedicationTrackerProps {
   date: string;
   isTaken: boolean;
@@ -39,7 +41,7 @@ const MedicationTracker = ({ date, isTaken, onMarkTaken, isToday }: MedicationTr
   const handleMarkTaken = async () => {
   const token = localStorage.getItem("token");
   await axios.patch(
-    `http://localhost:5000/api/medications/${medId}/taken`, // You’ll need medId
+    `https://medicaredaveed.onrender.com/api/medications/${medId}/taken`, // You’ll need medId
     {},
     { headers: { Authorization: `Bearer ${token}` } }
   );

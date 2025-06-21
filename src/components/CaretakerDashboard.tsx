@@ -32,7 +32,7 @@ import axios from "axios";
 
 const fetchPatientMedications = async () => {
   const token = localStorage.getItem("token");
-  const res = await axios.get("http://localhost:5000/api/medications", {
+  const res = await axios.get("https://medicaredaveed.onrender.com/api/medications", {
     headers: { Authorization: `Bearer ${token}` },
   });
   return res.data;
