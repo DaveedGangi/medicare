@@ -32,7 +32,8 @@ router.post('/login', (req, res) => {
 });
 
 
-router.get('/patients', authenticateUser, async (req, res) => {
+
+router.get('/patients', async (req, res) => {
   const user = req.user;
 
   if (user.role !== 'caretaker') {
